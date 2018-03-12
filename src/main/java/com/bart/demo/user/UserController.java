@@ -1,6 +1,7 @@
 package com.bart.demo.user;
 
 import com.bart.demo.config.error.ErrorResponse;
+import com.bart.demo.message.CreateMessageDTO;
 import com.bart.demo.message.Message;
 import com.bart.demo.message.MessageService;
 import io.swagger.annotations.*;
@@ -87,5 +88,18 @@ public class UserController {
     })
     Page<Message> getTimeline(@PathVariable Long userId, Pageable pageable) {
         return messageService.getTimeline(userId, pageable);
+    }
+
+    @PostMapping("/{userId}/wall")
+    @ApiOperation(
+            value = "Post message on users wall",
+            response = Message.class)
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "Success", response =  Message.class),
+    })
+    Message postMessage(
+            @PathVariable Long userId,
+            @Valid @RequestBody CreateMessageDTO createMessageDTO) {
+        return messageService.postMessage(userId, createMessageDTO);
     }
 }

@@ -37,22 +37,9 @@ public class MessageController {
             value = "Create new message with user",
             response = Message.class)
     @ApiResponses({
-            @ApiResponse(code = 200, message = "Success", response =  Message.class),
+            @ApiResponse(code = 200, message = "Success", response =  Message.class)
     })
     Message postMessageWithUser(@Valid @RequestBody CreateMessageWithUserDTO createMessageWithUserDTO) {
         return messageService.postMessage(createMessageWithUserDTO);
-    }
-
-    @PostMapping("/{userId}")
-    @ApiOperation(
-            value = "Create new message for user",
-            response = Message.class)
-    @ApiResponses({
-            @ApiResponse(code = 200, message = "Success", response =  Message.class),
-    })
-    Message postMessage(
-            @PathVariable Long userId,
-            @Valid @RequestBody CreateMessageDTO createMessageDTO) {
-        return messageService.postMessage(userId, createMessageDTO);
     }
 }
