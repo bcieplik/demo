@@ -11,7 +11,7 @@ import java.util.Optional;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.Mockito.when;
+import static org.mockito.BDDMockito.given;
 
 public class UserServiceTest extends AbstractTest {
 
@@ -31,8 +31,8 @@ public class UserServiceTest extends AbstractTest {
         User user = new User(getRandomString(), new HashSet<>());
         user.setId(1L);
 
-        when(userRepository.findByUsername(anyString())).thenReturn(Optional.empty());
-        when(userRepository.save(any(User.class))).thenReturn(user);
+        given(userRepository.findByUsername(anyString())).willReturn(Optional.empty());
+        given(userRepository.save(any(User.class))).willReturn(user);
 
         User createdUser = userService.createUser(new CreateUserDTO(user.getUsername()));
 
@@ -44,13 +44,13 @@ public class UserServiceTest extends AbstractTest {
 
         User user1 = new User(getRandomString(), new HashSet<>());
         user1.setId(1L);
-        when(userRepository.findById(user1.getId())).thenReturn(Optional.of(user1));
+        given(userRepository.findById(user1.getId())).willReturn(Optional.of(user1));
 
         User user2 = new User(getRandomString(), new HashSet<>());
         user2.setId(2L);
-        when(userRepository.findById(user2.getId())).thenReturn(Optional.of(user2));
+        given(userRepository.findById(user2.getId())).willReturn(Optional.of(user2));
 
-        when(userRepository.save(any(User.class))).thenReturn(user1);
+        given(userRepository.save(any(User.class))).willReturn(user1);
 
         User user = userService.addSubscription(user1.getId(), new AddSubscriptionDTO(user2.getId()));
 
