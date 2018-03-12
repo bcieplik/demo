@@ -1,6 +1,5 @@
 package com.bart.demo.message;
 
-import com.bart.demo.config.error.ErrorResponse;
 import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

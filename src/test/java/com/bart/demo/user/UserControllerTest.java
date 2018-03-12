@@ -2,7 +2,6 @@ package com.bart.demo.user;
 
 import com.bart.demo.AbstractTest;
 import com.bart.demo.message.CreateMessageDTO;
-import com.bart.demo.message.CreateMessageWithUserDTO;
 import org.hamcrest.Matchers;
 import org.junit.Test;
 import org.springframework.http.MediaType;

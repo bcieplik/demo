@@ -1,6 +1,5 @@
 package com.bart.demo.user;
 
-import com.bart.demo.config.error.ErrorResponse;
 import com.bart.demo.message.CreateMessageDTO;
 import com.bart.demo.message.Message;
 import com.bart.demo.message.MessageService;

@@ -1,7 +1,6 @@
 package com.bart.demo.message;
 
 import com.bart.demo.AbstractTest;
-import com.bart.demo.user.User;
 import org.hamcrest.Matchers;
 import org.junit.Test;
 import org.springframework.http.MediaType;

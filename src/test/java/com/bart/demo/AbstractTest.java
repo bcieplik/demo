@@ -1,11 +1,9 @@
 package com.bart.demo;
 
 import com.bart.demo.message.MessageService;
-import com.bart.demo.message.MessageServiceImpl;
 import com.bart.demo.user.CreateUserDTO;
 import com.bart.demo.user.User;
 import com.bart.demo.user.UserService;
-import com.bart.demo.user.UserServiceImpl;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;

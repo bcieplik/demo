@@ -1,7 +1,6 @@
 package com.bart.demo.message;
 
 import com.bart.demo.user.User;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;

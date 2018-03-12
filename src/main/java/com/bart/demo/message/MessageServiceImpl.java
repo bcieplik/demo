@@ -1,6 +1,5 @@
 package com.bart.demo.message;
 
-import com.bart.demo.config.error.BadRequestException;
 import com.bart.demo.config.error.NotFoundException;
 import com.bart.demo.user.CreateUserDTO;
 import com.bart.demo.user.User;
