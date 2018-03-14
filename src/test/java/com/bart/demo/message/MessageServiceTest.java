@@ -89,7 +89,7 @@ public class MessageServiceTest extends AbstractTest {
         User user1 = new User(getRandomString(), new HashSet<>());
         user1.setId(1L);
         User user2 = new User(getRandomString(), new HashSet<>());
-        user2.setId(1L);
+        user2.setId(2L);
 
         user1.getSubscribedUsers().add(user2);
 
