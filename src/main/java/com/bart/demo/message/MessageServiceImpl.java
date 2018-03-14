@@ -23,7 +23,8 @@ public class MessageServiceImpl implements MessageService {
         this.messageRepository = messageRepository;
         this.userService = userService;
     }
-
+    
+    @Override
     public Message postMessage(CreateMessageWithUserDTO createMessageDTO) {
 
         User user = userService
@@ -46,11 +47,13 @@ public class MessageServiceImpl implements MessageService {
         Message message = new Message(user, text);
         return messageRepository.save(message);
     }
-
+    
+    @Override
     public Page<Message> getMessages(Pageable pageable) {
         return messageRepository.findAll(pageable);
     }
 
+    @Override
     public Page<Message> getWall(Long userId, Pageable pageable) {
         User user = userService.findById(userId).orElseThrow(NotFoundException::new);
         PageRequest pageRequest = new PageRequest(
@@ -61,6 +64,7 @@ public class MessageServiceImpl implements MessageService {
         return messageRepository.findByCreator(user, pageRequest);
     }
 
+    @Override
     public Page<Message> getTimeline(Long userId, Pageable pageable) {
         User user = userService.findById(userId).orElseThrow(NotFoundException::new);
         Set<User> subscribedUsers = user.getSubscribedUsers();
