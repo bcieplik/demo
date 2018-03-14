@@ -20,6 +20,7 @@ public class UserServiceImpl implements UserService {
         this.userRepository = userRepository;
     }
 
+    @Override
     @Synchronized
     public User createUser(CreateUserDTO createUserDTO) {
         return userRepository.findByUsername(createUserDTO.getUsername())
@@ -30,18 +31,22 @@ public class UserServiceImpl implements UserService {
                 });
     }
 
+    @Override
     public Optional<User> findByUsername(String username) {
         return userRepository.findByUsername(username);
     }
 
+    @Override
     public Optional<User> findById(Long userId) {
         return userRepository.findById(userId);
     }
 
+    @Override
     public Page<User> getUsers(Pageable pageable) {
         return userRepository.findAll(pageable);
     }
 
+    @Override
     public User addSubscription(Long userId, AddSubscriptionDTO addSubscriptionDTO) {
 
         User user = findById(userId).orElseThrow(NotFoundException::new);
@@ -52,6 +57,7 @@ public class UserServiceImpl implements UserService {
         return userRepository.save(user);
     }
 
+    @Override
     public Set<User> getSubscriptions(Long userId) {
         User user = findById(userId).orElseThrow(NotFoundException::new);
         return user.getSubscribedUsers();
